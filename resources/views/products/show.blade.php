@@ -57,7 +57,7 @@
         <a class="link-secondary" href="#">Subscribe</a>
       </div>
       <div class="col-4 text-center">
-        <a class="blog-header-logo text-dark" href="#">Large</a>
+        <a class="blog-header-logo text-dark" href="{{route( 'products.index') }}">Large</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
         <a class="link-secondary" href="#" aria-label="Search">
@@ -96,26 +96,24 @@
   </div>
 
   <div class="row mb-2">
-      @foreach($products as $product)
-      <div class="col-md-6">
+
+      <div class="col-md-12">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-success">Design</strong>
-          <h3 class="mb-0">{{$product->title}}</h3>
-          <div class="mb-1 text-muted">{{$product->created_at->format('d/m/y')}}</div>
-          <p class="mb-auto">{{$product->subtitle}}</p>
-          <strong class="mb-auto">{{$product->getFrenchPrtice()}}</strong>
-          <a href="{{route('products.show', $product->slug)}}" class="stretched-link btn btn-info">Voir plus</a>
+          <h3 class="mb-0">{{$products->title}}</h3>
+          <div class="mb-1 text-muted">{{$products->created_at->format('d/m/y')}}</div>
+          <p class="mb-auto">{{$products->description}}</p>
+          <strong class="mb-auto">{{$products->getFrenchPrtice()}}</strong>
+         
         </div>
 
         <div class="col-auto d-none d-lg-block">
-        <img src="{{$product->image}}" alt="">
+        <img src="{{$products->image}}" alt="">
         </div>
       </div>
     </div>
 
-
-      @endforeach
       </div>
   </div>
 
